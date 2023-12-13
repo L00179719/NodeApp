@@ -6,5 +6,5 @@ app.get('/', (req,res)=>{
     res.send('Home page')
 })
 app.listen(port, ()=>{
-    console.log('server started', port)
+    console.log('server running', port)
 })
