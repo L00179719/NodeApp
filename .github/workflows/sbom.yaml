@@ -1,4 +1,4 @@
-name: Generate SBOM
+name: Generate CycloneDX SBOM
 
 on:
   push:
@@ -19,14 +19,16 @@ jobs:
           node-version: '14'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install # Adjust this based on your project's setup
 
       - name: Generate CycloneDX SBOM
-        run: npm run sbom:generate
+        run: |
+          npm install -g safety-cli
+          safety check --json | cyclonedx-bom -o sbom.xml
 
-      - name: Upload SBOM
+      - name: Upload CycloneDX SBOM
         uses: actions/upload-artifact@v2
         with:
-          name: sbom
-          path: ./sbom.xml
+          name: cyclonedx-sbom
+          path: sbom.xml
 
