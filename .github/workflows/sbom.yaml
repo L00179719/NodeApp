@@ -1,2 +1,33 @@
+name: Generate CycloneDX SBOM
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate_sbom:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate CycloneDX SBOM
+        run: npm run generate-sbom
+
+      - name: Upload CycloneDX SBOM
+        uses: actions/upload-artifact@v2
+        with:
+          name: cyclonedx-sbom
+          path: sbom.xml
 
 
