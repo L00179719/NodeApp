@@ -1,59 +1,32 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:116594513860:task-definition/nodeapp-task-definition:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:667864223568:task-definition/tbbt-task-family:1",
     "containerDefinitions": [
         {
-            "name": "nodeappcontainer",
-            "image": "116594513860.dkr.ecr.us-east-1.amazonaws.com/nodeapp",
+            "name": "tbbt-container",
+            "image": "667864223568.dkr.ecr.us-east-1.amazonaws.com/tbbt-ecr-repo",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "nodeappcontainer-3000-tcp",
                     "containerPort": 3000,
                     "hostPort": 3000,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
+                    "protocol": "tcp"
                 }
             ],
             "essential": true,
             "environment": [],
-            "environmentFiles": [],
             "mountPoints": [],
-            "volumesFrom": [],
-            "ulimits": [],
-            "logConfiguration": {
-                "logDriver": "awslogs",
-                "options": {
-                    "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/nodeapp-task-definition",
-                    "awslogs-region": "us-east-1",
-                    "awslogs-stream-prefix": "ecs"
-                },
-                "secretOptions": []
-            }
+            "volumesFrom": []
         }
     ],
-    "family": "nodeapp-task-definition",
-    "taskRoleArn": "arn:aws:iam::116594513860:role/ecsTaskExecutionRole",
-    "executionRoleArn": "arn:aws:iam::116594513860:role/ecsTaskExecutionRole",
+    "family": "tbbt-task-family",
+    "executionRoleArn": "arn:aws:iam::667864223568:role/tbbt-ecs-execution-role",
     "networkMode": "awsvpc",
     "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
         {
-            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-        },
-        {
-            "name": "ecs.capability.execution-role-awslogs"
-        },
-        {
             "name": "com.amazonaws.ecs.capability.ecr-auth"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -63,9 +36,6 @@
         },
         {
             "name": "ecs.capability.task-eni"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
     "placementConstraints": [],
@@ -76,13 +46,9 @@
     "requiresCompatibilities": [
         "FARGATE"
     ],
-    "cpu": "1024",
-    "memory": "3072",
-    "runtimePlatform": {
-        "cpuArchitecture": "X86_64",
-        "operatingSystemFamily": "LINUX"
-    },
-    "registeredAt": "2023-12-22T11:57:05.525Z",
-    "registeredBy": "arn:aws:iam::116594513860:root",
+    "cpu": "256",
+    "memory": "512",
+    "registeredAt": "2024-01-12T13:24:46.489Z",
+    "registeredBy": "arn:aws:iam::667864223568:user/L00179719@atu.ie",
     "tags": []
 }
