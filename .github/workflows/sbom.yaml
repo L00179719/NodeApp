@@ -1,0 +1,33 @@
+name: Generate SBOM
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Generate SBOM
+      run: |
+        npm install -g @cyclonedx/cli
+        cyclonedx-cli analyze --format JSON --output sbom.json
+
+    - name: Publish SBOM as Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: sbom
+        path: sbom.json
