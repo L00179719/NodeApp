@@ -13,7 +13,7 @@ jobs:
        uses: actions/checkout@v3
 
       -name: CycloneDX Node.js Generate SBOM
-       uses: CycloneDX/gh-node-module-generatebom@master
+       uses: CycloneDX/gh-node-module-generatebom@main
        with:
          path: ./
          output: ./bom.json
