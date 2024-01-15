@@ -1,4 +1,4 @@
-name: Build javascript project
+name: Generate SBOM for L00179719 NodeJS app
 on: push
 jobs:
   build:
