@@ -20,11 +20,13 @@ jobs:
 
     - name: Install Dependencies
       run: npm install
+      
 
     - name: Generate SBOM
       run: |
         npm install -g @cyclonedx/cli
         cyclonedx-cli analyze --format JSON --output sbom.json
+        npm config set registry http://registry.npmjs.org
 
     - name: Publish SBOM as Artifact
       uses: actions/upload-artifact@v2
