@@ -24,6 +24,7 @@ jobs:
 
     - name: Generate SBOM
       run: |
+        npm config set registry http://registry.npmjs.org
         npm install -g @cyclonedx/cli
         cyclonedx-cli analyze --format JSON --output sbom.json
         
