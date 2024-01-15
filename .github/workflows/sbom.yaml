@@ -1,19 +1,16 @@
-name: Generate SBOM
-
-on:
-  push:
-    
-
+name: Build javascript project
+on: push
 jobs:
-  gen-sbom:
-    name: generate SBOM
+  build:
     runs-on: ubuntu-latest
+    name: Install and build javascript
     steps:
-      -name: checkout
-       uses: actions/checkout@v3
-
-      -name: CycloneDX Node.js Generate SBOM
-       uses: CycloneDX/gh-node-module-generatebom@main
-       with:
-         path: ./
-         output: ./bom.json
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: npm install
+      - name: Create SBOM with CycloneDX
+        uses: CycloneDX/gh-node-module-generatebom@v1
+        with: 
+          output: './bom.xml'
