@@ -1,2 +1,2 @@
 # NodeApp
-Node application for DevOps team project
+Basic Node application with GitActions workflow to upload as Docker image to AWS ECR repository and deploy using ECS fargate
