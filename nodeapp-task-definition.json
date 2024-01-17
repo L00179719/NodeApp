@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:667864223568:task-definition/tbbt-task-family:4",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:667864223568:task-definition/studio-ghibli-task-family:3",
     "containerDefinitions": [
         {
-            "name": "tbbt-container",
-            "image": "667864223568.dkr.ecr.us-east-1.amazonaws.com/tbbt-ecr-repo",
+            "name": "studio-ghibli-container",
+            "image": "667864223568.dkr.ecr.us-east-1.amazonaws.com/studio-ghibli-ecr-repo",
             "cpu": 0,
             "portMappings": [
                 {
@@ -18,10 +18,10 @@
             "volumesFrom": []
         }
     ],
-    "family": "tbbt-task-family",
-    "executionRoleArn": "arn:aws:iam::667864223568:role/tbbt-ecs-execution-role",
+    "family": "studio-ghibli-task-family",
+    "executionRoleArn": "arn:aws:iam::667864223568:role/studio-ghibli-ecs-execution-role",
     "networkMode": "awsvpc",
-    "revision": 4,
+    "revision": 3,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -48,7 +48,7 @@
     ],
     "cpu": "512",
     "memory": "3072",
-    "registeredAt": "2024-01-12T15:59:01.788Z",
+    "registeredAt": "2024-01-17T12:41:52.054Z",
     "registeredBy": "arn:aws:iam::667864223568:user/L00179719@atu.ie",
     "tags": []
 }
