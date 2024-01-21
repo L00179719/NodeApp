@@ -4,7 +4,7 @@ const port = process.env.PORT || 3000;
 
 // Route for the root URL
 app.get('/', (req, res) => {
-    res.status(200).send('Welcom to DevOps app!. Testing the CI/CD pipeline.');
+    res.status(200).send('Welcom to Dev!. Testing the CI/CD pipeline.');
 });
 
 
